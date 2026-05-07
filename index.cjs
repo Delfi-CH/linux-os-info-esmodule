@@ -1,5 +1,5 @@
-import fs from "node:fs"
-import os from "node:os"
+const fs = require('fs')
+const os = require('os')
 
 /**
  * Get OS release info from the node os module and augment that with information
@@ -151,13 +151,12 @@ function addOsReleaseToOutputData (data, outputData) {
   });
 }
 
-export default linuxOsInfo
+module.exports = linuxOsInfo
 
 //
 // a tiny bit of testing
 //
-import { fileURLToPath } from 'url';
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if (require.main === module) {
   /* eslint-disable no-console */
   console.log('testing synchronous')
   console.log('synchronous:', linuxOsInfo({mode: 'sync'}))

@@ -1,7 +1,7 @@
-const osInfo = require('../index')
-const os = require('os')
-const fs = require('fs')
-const expect = require('chai').expect;
+import linuxOsInfo from '../index.js' ;
+import fs from "node:fs"
+import os from "node:os"
+import { expect } from 'chai';
 
 const osData = {
   type: os.type(),
@@ -54,7 +54,7 @@ if (osData.file === '/etc/alpine-release') {
 //
 describe('linux-os-info', function () {
   it('should work by returning a promise', function (done) {
-    const p = osInfo();
+    const p = linuxOsInfo();
     expect(p).instanceOf(Promise);
 
     p.then(info => {
@@ -66,34 +66,34 @@ describe('linux-os-info', function () {
   })
 
   it('should work with a callback', function (done) {
-    osInfo({mode: function (err, info) {
+    linuxOsInfo({mode: function (err, info) {
       compare(info, expected)
       done()
     }})
   })
 
   it('should work synchronously', function () {
-    const info = osInfo({mode: 'sync'});
+    const info = linuxOsInfo({mode: 'sync'});
     compare(info, expected)
   })
 
   it('should return os info when no release file is found', function () {
-    const info = osInfo({mode: 'sync', list: []});
+    const info = linuxOsInfo({mode: 'sync', list: []});
     const e = os.type() === 'Linux' ? new Error('linux-os-info - no file found') : undefined;
     const expected = Object.assign({}, osData, {file: e});
     compare(info, expected)
 
-    osInfo({mode: function (err, info) {
+    linuxOsInfo({mode: function (err, info) {
       compare(info, expected)
     }, list: []})
 
-    osInfo({list: []}).then(info => {
+    linuxOsInfo({list: []}).then(info => {
       compare(info, expected)
     })
   })
 
   describe('OS-specific tests', function () {
-    const info = osInfo({mode: 'sync'});
+    const info = linuxOsInfo({mode: 'sync'});
 
     // ubuntu 18.04
     // eslint-disable-next-line no-func-assign
