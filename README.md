@@ -10,26 +10,26 @@ Get OS release info from the node `os` module and, for Linux releases, from the 
 
 ## Installation
 
-    npm install --save linux-os-info
+    npm install --save @delfi-ch/linux-os-info-esmodule
 
 ## Usage
 
-```
-const osInfo = require('linux-os-info')
+```js
+import linuxOsInfo from '@delfi-ch/linux-os-info-esmodule'
 
 // the example presumes running some flavor of linux.
 
 // synchronous - use an options argument with {mode: 'sync'}
-var result = osInfo({mode: 'sync'})
+var result = linuxOsInfo({mode: 'sync'})
 console.log(`You are using ${result.pretty_name} on a ${result.arch} machine`)
 
 // asynchronous - pass a function as the mode
-osInfo({mode: function (err, result) {
+linuxOsInfo({mode: function (err, result) {
   console.log(`You are using ${result.pretty_name} on a ${result.arch} machine`)
 }})
 
 // promise - no arguments or no mode specified
-osInfo()
+linuxOsInfo()
   .then(result => {
     console.log(`You are using ${result.pretty_name} on a ${result.arch} machine`)
   })
@@ -38,7 +38,7 @@ osInfo()
 ```
 On my machine all three versions output:
 ```
-You are using Ubuntu 18.04 LTS on a x64 machine
+You are using Arch Linux on a x64 machine
 ```
 
 The API completely changed from version 1. The single, optional argument is an options object.
