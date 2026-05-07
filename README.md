@@ -1,6 +1,8 @@
 linux-os-info
 =================
 
+This is a fork of [bmacnaughton/linux-os-info](https://github.com/bmacnaughton/linux-os-info), which adds ESModule support.
+
 Get OS release info from the node `os` module and, for Linux releases, from the `'/etc/os-release'`, `/usr/lib/os-release`, or `/etc/alpine-release` file. If none of those files exists it returns only the node `os` module info (platform, hostname, release, and arch)
 
 ### Highlights
