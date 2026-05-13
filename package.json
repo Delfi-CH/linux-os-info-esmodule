@@ -1,6 +1,6 @@
 {
   "name": "@delfi-ch/linux-os-info-esmodule",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Get Linux release info (distribution name, version, arch, release, etc.) from '/etc/os-release' file and from native os module. On Windows and Macs it returns only node os module info (platform, hostname, release and arch)",
   "main": "index.cjs",
   "type": "module",

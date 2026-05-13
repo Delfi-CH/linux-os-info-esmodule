@@ -156,9 +156,10 @@ export default linuxOsInfo
 //
 // a tiny bit of testing
 //
+/*
 import { fileURLToPath } from 'url';
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  /* eslint-disable no-console */
+  // eslint-disable no-console 
   console.log('testing synchronous')
   console.log('synchronous:', linuxOsInfo({mode: 'sync'}))
 
@@ -170,3 +171,4 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   console.log('testing callback')
   linuxOsInfo({mode: function (err, data) {console.log('callback:', data)}})
 }
+*/
